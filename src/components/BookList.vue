@@ -4,14 +4,15 @@
             {{ title }}
         </h1>
         <ul>
-            <li v-for="book in books" :key="book.title">
-                {{book.title}}: {{book.author}}
-            </li>
+            <book-item v-for="book in books" :key="book.title" :book="book">
+            </book-item>
         </ul>
     </div>
 </template>
 
 <script>
+import BookItem from './BookItem.vue'
+
 export default {
     name: "BookList",
     data() {
@@ -23,6 +24,9 @@ export default {
                 {title: 'Amusing Ourselves to Death', author: 'Neil Postman'},
             ]
         }
+    },
+    components: { 
+        BookItem,
     }
 }
 </script>
